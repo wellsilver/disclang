@@ -44,5 +44,4 @@ print('arg')
 Eg, out[Hello World!]
 console: Hello World!
 
-by the way, you can safely do :k150 because it only checks in the loop (for every line in the script) so it wont go on for another 150 lines
-`
+by the way, you can safely do :k150 because it only checks in the loop (for every line in the script) so it wont go on for another 150 lines`
