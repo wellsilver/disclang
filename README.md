@@ -3,7 +3,7 @@
 No libraries required all you need is the latest version of python
 
 Bad Docs (with example):
-:k6
+`:k6
 Okay heres the basic syntax
 --<mode> sets mode; import, init, main
 :: note
@@ -45,3 +45,4 @@ Eg, out[Hello World!]
 console: Hello World!
 
 by the way, you can safely do :k150 because it only checks in the loop (for every line in the script) so it wont go on for another 150 lines
+`
