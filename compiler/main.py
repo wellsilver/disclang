@@ -1,3 +1,4 @@
+import time
 # every day i rewrite again, 100 lines ar- gone to waste~
 """heres how it works:
 for every line in <file>.readlines():
@@ -12,6 +13,13 @@ m_init=[]
 m_main=[]
 blank=[]
 mode=0
+def panic(msg):
+  global count
+  print("Error!")
+  print(f"At line {count}")
+  print(msg)
+  time.sleep(5)
+  quit()
 for i in file.readlines():
   count+=1
   if i == "\n":
@@ -28,21 +36,33 @@ for i in file.readlines():
   if i.startswith('--'):
     if i.startswith('import',2):
       mode=1
+      continue
     if i.startswith('init',2):
       mode=2
+      continue
     if i.startswith('main',2):
       mode=3
-    continue
+      continue
+    panic("Invalid mode, must be; import, init, or main")
   # finally
   if mode == 1:
     if i.startswith(">>"):
-      exec(f"import lib."+i.split(">>",1)[1])
+      try:
+        exec(f"import lib."+i.split(">>",1)[1])
+      except:
+        panic("Invalid import\nCreate a 'lib' folder or incorrect import name")
     continue
   if mode == 2:
-    exec(f'm_init.append(lib.'+i.split('-',1)[0]+f'.main("{i}"))'.replace('\n',""))
+    try:
+      exec(f'm_init.append(lib.'+i.split('-',1)[0]+f'.main("{i}"))'.replace('\n',""))
+    except:
+      panic("")
     #      m_init.append('')
     continue
     #m_init.append()
   if mode == 3:
-    exec(f'm_main.append(lib.'+i.split('-',1)[0]+f'.main("{i}"))'.replace('\n',""))
+    try:
+      exec(f'm_main.append(lib.'+i.split('-',1)[0]+f'.main("{i}"))'.replace('\n',""))
+    except:
+      panic("")
     continue
