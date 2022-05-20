@@ -1,4 +1,3 @@
-import time
 # every day i rewrite again, 100 lines ar- gone to waste~
 """heres how it works:
 for every line in <file>.readlines():
@@ -6,7 +5,9 @@ if empty or in note catcher skip
 if import do import
 if init write to a table for inits
 if main write to a table for mains"""
-file=open('example.dss')
+file=open("src/main.dss")
+
+token=None
 count=0
 count2=0
 m_init=[]
@@ -18,7 +19,7 @@ def panic(msg):
   print("Error!")
   print(f"At line {count}")
   print(msg)
-  time.sleep(5)
+  input()
   quit()
 for i in file.readlines():
   count+=1
@@ -33,6 +34,12 @@ for i in file.readlines():
     a=i.split(":k",1)[1]
     count2=int(a)
     continue
+  if i.startswith('<'):
+    try:
+      a=i.split("<",1)[1]
+      token=a.split(">",1)[0]
+    except:
+      panic("Failed to parse token")
   if i.startswith('--'):
     if i.startswith('import',2):
       mode=1
@@ -66,3 +73,27 @@ for i in file.readlines():
     except:
       panic("")
     continue
+"""
+To parse, form the initial python script in this real table.
+After parsing make a "target" folder and place in the target folder"""
+real=[]
+# first make into real
+real.append("import discord")
+real.append("client = discord.Client()")
+real.append(f"token = '{token}'")
+real.append("@client.event")
+real.append("async def on_ready():")
+for i in m_init:
+  real.append(i)
+real.append("@client.event")
+real.append("async def on_message(l):")
+real.append("  c=l.text")
+for i in m_main:
+  real.append(i)
+try:
+  ll=open("out.py",'x')
+except:
+  ll=open("out.py",'w')
+for i in real:
+  ll.write("\n"+i)
+ll.close()
