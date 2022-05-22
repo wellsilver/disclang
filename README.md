@@ -3,7 +3,9 @@ Almost done, however there is disclang v1 (its a mess) you can find if you go to
 
 # Disclang
 
-No libraries required all you need is the latest version of python
+No libraries required* all you need is the latest version of python
+
+* You need the discord module (pip install discord) to use the output file
 
 # Libraries
 To find out how to make a library look in the "compiler" and the libraries folder
