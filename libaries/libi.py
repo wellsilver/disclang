@@ -3,7 +3,10 @@ def main(i):
   return ''
 
 def getargs(i,amount):
-  a=i.split("-",1)[1]
+  try:
+    a=i.split("-",1)[1]
+  except:
+    print("Failed- invalid command")
   kk = []
   # I dont know if below counts as a algorithm, though I dont know what algorithms are lol
   for bb in range(int(amount)):
