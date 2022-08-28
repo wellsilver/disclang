@@ -1,6 +1,7 @@
 # Disclang
-v2
+Make your own chatbot easily!
 
+v2
 ## how to use?
 open src/main.dss and see how its suppost to work and freely modify
 
