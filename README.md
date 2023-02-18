@@ -14,8 +14,3 @@ I messed alot of stuff up making this repository and editing it so its better to
 
 ## is this a real language?
 oh dear god no what are you thinking?
-
-## what about v3
-v3 will make disclang a real language instead of just being a dumb thing
-
-it'll have the same syntax as about now but have macros and things based mostly on libraries just as both the originals were
