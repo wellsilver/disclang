@@ -1,4 +1,4 @@
-:: ensure code is compiled for a bare metal x86
+:: ensure code is compiled for a bare metal 16 bit x86
 target x86-none-none
 
 :: get x86 bare metal library
@@ -8,9 +8,10 @@ use x86
 :: or in its simplest form (like strings are c string)
 use static
 
---for i in 0 .. size "Hello world!"
+:: print hello world to vga
+for i in 0 .. size "Hello world!" {
   x86.vga.printchar(a[i])
---
+}
 
 x86.hcf :: infinite hlt loop, cpu will triple fault if it get to a
 

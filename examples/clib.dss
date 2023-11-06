@@ -1,5 +1,5 @@
 use clib
 
---main argc:c_int argv:c_ptr
+main argc:c_int argv:c_ptr {
   printf "Hello World!"
---
+}
