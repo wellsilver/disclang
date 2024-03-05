@@ -1,0 +1,12 @@
+## python3 compile/disclang.py examples/boot.dss
+
+# Trying to make a funny language for "safe" low level control
+#examplefile: bios helloworld
+
+as bits 16
+as org 0x7C00
+
+
+
+file.truncate 510
+file.write    0xAA55
